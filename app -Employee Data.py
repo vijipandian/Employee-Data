@@ -16,13 +16,13 @@ data.isnull().sum()
 
 
 fig,ax=plt.subplots(figsize=(6,5))
-sns.barplot(data=data,x="age",y="salary",palette="Set2",hue="age",ax=ax)
+ax.barplot(data=data,x="age",y="salary",palette="Set2",hue="age",ax=ax)
 st.title("age VS Salary")
 st.pyplot(fig)
 
 
 fig,ax=plt.subplots(figsize=(6,5))
-sns.barplot(data=data,x="groups",y="healthy_eating",palette="Set1",hue="groups",ax=ax)
+ax.barplot(data=data,x="groups",y="healthy_eating",palette="Set1",hue="groups",ax=ax)
 st.title("Healthy Eating by Groups")
 st.pyplot(fig)
 
@@ -30,17 +30,17 @@ st.pyplot(fig)
 
 corr=data[["age","healthy_eating","active_lifestyle","salary"]].corr()
 fig,ax=plt.subplots(figsize=(6,5))
-sns.heatmap(corr,annot=True,cmap="coolwarm",fmt=".2f",ax=ax)
+ax.heatmap(corr,annot=True,cmap="coolwarm",fmt=".2f",ax=ax)
 st.title("Correlation Heatmap")
 st.pyplot(fig)
 
 
 
-pair_fig=sns.pairplot(data,vars=["age","healthy_eating","active_lifestyle","salary"],hue="groups")
+pair_fig=ax.pairplot(data,vars=["age","healthy_eating","active_lifestyle","salary"],hue="groups")
 st.pyplot(pair_fig.fig)
 
 
 fig,ax=plt.subplots(figsize=(5,6))
-sns.scatterplot(data=data,x="age",y="active_lifestyle",color="purple",ax=ax)
+ax.scatterplot(data=data,x="age",y="active_lifestyle",color="purple",ax=ax)
 st.title("age vs activelifestyle")
 st.pyplot(fig)
